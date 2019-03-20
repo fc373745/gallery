@@ -32,7 +32,6 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
     const getImages = () => {
         switch (artist.name) {
             case "walterkim": {
-                console.log("what");
                 const images = importAll(
                     require.context(
                         "../images/walterkim",
@@ -421,15 +420,18 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
     }, [images, numDivisions]);
 
     return (
-        <GalleryContainer>
-            {sepImages &&
-                sepImages.map((images, i) => (
-                    <Column key={i} numDivisions={numDivisions}>
-                        {images.map((image, i) => (
-                            <Image key={i} src={image} />
-                        ))}
-                    </Column>
-                ))}
-        </GalleryContainer>
+        <>
+            <h1>{artist.name}</h1>
+            <GalleryContainer>
+                {sepImages &&
+                    sepImages.map((images, i) => (
+                        <Column key={i} numDivisions={numDivisions}>
+                            {images.map((image, i) => (
+                                <Image key={i} src={image} />
+                            ))}
+                        </Column>
+                    ))}
+            </GalleryContainer>
+        </>
     );
 };

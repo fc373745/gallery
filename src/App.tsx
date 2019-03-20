@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { Gallery } from "./components/Gallery";
 
@@ -20,7 +20,7 @@ const Global = createGlobalStyle`
   }
 `;
 
-const Data: Artists = [
+const data: Artists = [
     {
         name: "walterkim",
         dir: "../images/awanqi"
@@ -32,20 +32,62 @@ const Data: Artists = [
     {
         name: "alexisrives",
         dir: ""
+    },
+    {
+        name: "nkayurova",
+        dir: ""
+    },
+    {
+        name: "sachinteng",
+        dir: ""
+    },
+    {
+        name: "samuelyoun",
+        dir: ""
+    },
+    {
+        name: "zeenchin",
+        dir: ""
+    },
+    {
+        name: "satoshimatsuura",
+        dir: ""
     }
 ];
 
-class App extends Component {
-    render() {
-        return (
-            <Container>
-                <Global />
-                <Gallery artist={Data[0]} />
-                <Gallery artist={Data[1]} />
-                <Gallery artist={Data[2]} />
-            </Container>
-        );
-    }
-}
+const App: React.FC = () => {
+    let counter = 3;
+    const [viewGallery, setViewGallery] = useState<Artists>([]);
+
+    useEffect(() => {
+        if (viewGallery.length < 1) {
+            let newViewGallery = data.slice(0, 3);
+            setViewGallery(newViewGallery);
+            window.addEventListener("scroll", () => {
+                var d = document.documentElement;
+                var offset = d.scrollTop + window.innerHeight;
+                var height = d.offsetHeight;
+
+                if (offset === height) {
+                    addAnotherThree();
+                }
+            });
+        }
+    });
+
+    const addAnotherThree = () => {
+        counter += 3;
+        let newViewGallery = data.slice(0, counter);
+        setViewGallery(newViewGallery);
+    };
+    return (
+        <Container>
+            <Global />
+            {viewGallery.map(dat => (
+                <Gallery key={dat.name} artist={dat} />
+            ))}
+        </Container>
+    );
+};
 
 export default App;
