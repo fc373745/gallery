@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled from "styled-components";
-
 interface Props {
     artist: Artist;
 }
@@ -31,15 +30,341 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
     const [sepImages, setSepImages] = React.useState<string[][] | null>(null);
 
     const getImages = () => {
-        const walter = "walterkim";
-        const images = importAll(
-            require.context(
-                "../images/ateyghailan",
-                false,
-                /\.(png|jpe?g|svg)$/
-            )
-        );
-        setImages(images);
+        switch (artist.name) {
+            case "walterkim": {
+                console.log("what");
+                const images = importAll(
+                    require.context(
+                        "../images/walterkim",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "adriansmith": {
+                const images = importAll(
+                    require.context(
+                        "../images/adriansmith",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "albaballesta": {
+                const images = importAll(
+                    require.context(
+                        "../images/albaballesta",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "alenaaenami": {
+                const images = importAll(
+                    require.context(
+                        "../images/alenaaenami",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "alexisrives": {
+                const images = importAll(
+                    require.context(
+                        "../images/alexisrives",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "andreasrocha": {
+                const images = importAll(
+                    require.context(
+                        "../images/andreasrocha",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "angelinebandong": {
+                const images = importAll(
+                    require.context(
+                        "../images/angelinebandong",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "ateyghailan": {
+                const images = importAll(
+                    require.context(
+                        "../images/ateyghailan",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "awanqi": {
+                const images = importAll(
+                    require.context(
+                        "../images/awanqi",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "chaninsuasungnern": {
+                const images = importAll(
+                    require.context(
+                        "../images/chaninsuasungnern",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "chineseletters": {
+                const images = importAll(
+                    require.context(
+                        "../images/chineseletters",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "fernandocorrea": {
+                const images = importAll(
+                    require.context(
+                        "../images/fernandocorrea",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "gliulian": {
+                const images = importAll(
+                    require.context(
+                        "../images/gliulian",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "ickyh": {
+                const images = importAll(
+                    require.context(
+                        "../images/ickyh",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "jamesjean": {
+                const images = importAll(
+                    require.context(
+                        "../images/jamesjean",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "jinhong": {
+                const images = importAll(
+                    require.context(
+                        "../images/jinhong",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "leeyeonggyun": {
+                const images = importAll(
+                    require.context(
+                        "../images/leeyeonggyun",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "micaeladawn": {
+                const images = importAll(
+                    require.context(
+                        "../images/micaeladawn",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "nivanhchanthara": {
+                const images = importAll(
+                    require.context(
+                        "../images/nivanhchanthara",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "nkayurova": {
+                const images = importAll(
+                    require.context(
+                        "../images/nkayurova",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "sachinteng": {
+                const images = importAll(
+                    require.context(
+                        "../images/sachinteng",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "samuelyoun": {
+                const images = importAll(
+                    require.context(
+                        "../images/samuelyoun",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "satoshimatsuura": {
+                const images = importAll(
+                    require.context(
+                        "../images/satoshimatsuura",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "size": {
+                const images = importAll(
+                    require.context(
+                        "../images/size",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "tanzhihui": {
+                const images = importAll(
+                    require.context(
+                        "../images/tanzhihui",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "chunlo": {
+                const images = importAll(
+                    require.context(
+                        "../images/chunlo",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "weifeng": {
+                const images = importAll(
+                    require.context(
+                        "../images/weifeng",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "yliadeillustrations": {
+                const images = importAll(
+                    require.context(
+                        "../images/yliadeillustrations",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "yunling": {
+                const images = importAll(
+                    require.context(
+                        "../images/yunling",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            case "zeenchin": {
+                const images = importAll(
+                    require.context(
+                        "../images/zeenchin",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
+            default:
+                return;
+        }
     };
 
     const seperateImages = () => {
@@ -93,7 +418,7 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
         if (images && numDivisions) {
             seperateImages();
         }
-    });
+    }, [images, numDivisions]);
 
     return (
         <GalleryContainer>

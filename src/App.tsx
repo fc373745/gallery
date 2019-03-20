@@ -22,8 +22,16 @@ const Global = createGlobalStyle`
 
 const Data: Artists = [
     {
-        name: "aw anqi",
+        name: "walterkim",
         dir: "../images/awanqi"
+    },
+    {
+        name: "adriansmith",
+        dir: ""
+    },
+    {
+        name: "alexisrives",
+        dir: ""
     }
 ];
 
@@ -33,6 +41,8 @@ class App extends Component {
             <Container>
                 <Global />
                 <Gallery artist={Data[0]} />
+                <Gallery artist={Data[1]} />
+                <Gallery artist={Data[2]} />
             </Container>
         );
     }
