@@ -23,7 +23,7 @@ const Global = createGlobalStyle`
 const Data: Artists = [
     {
         name: "aw anqi",
-        dir: "awanqi"
+        dir: "../images/awanqi"
     }
 ];
 

@@ -31,14 +31,19 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
     const [sepImages, setSepImages] = React.useState<string[][] | null>(null);
 
     const getImages = () => {
+        const walter = "walterkim";
         const images = importAll(
-            require.context("../images/awanqi", false, /\.(png|jpe?g|svg)$/)
+            require.context(
+                "../images/ateyghailan",
+                false,
+                /\.(png|jpe?g|svg)$/
+            )
         );
         setImages(images);
     };
 
     const seperateImages = () => {
-        let sepImagesList = [new Array(numDivisions)];
+        let sepImagesList = new Array(numDivisions);
 
         if (images && numDivisions) {
             images.forEach((image: string, i: number) => {
@@ -69,7 +74,7 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
                 ) {
                     setNumDivisions(3);
                 } else {
-                    setNumDivisions(3);
+                    setNumDivisions(4);
                 }
             });
             getImages();
@@ -82,7 +87,7 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
             } else if (window.innerWidth > 800 && window.innerWidth <= 1200) {
                 setNumDivisions(3);
             } else {
-                setNumDivisions(3);
+                setNumDivisions(4);
             }
         }
         if (images && numDivisions) {
@@ -93,10 +98,10 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
     return (
         <GalleryContainer>
             {sepImages &&
-                sepImages.map(images => (
-                    <Column numDivisions={numDivisions}>
-                        {images.map(image => (
-                            <Image src={image} />
+                sepImages.map((images, i) => (
+                    <Column key={i} numDivisions={numDivisions}>
+                        {images.map((image, i) => (
+                            <Image key={i} src={image} />
                         ))}
                     </Column>
                 ))}
