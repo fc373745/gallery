@@ -17,41 +17,105 @@ const Global = createGlobalStyle`
 
   body{
     font-size: 16px;
+    background-color: #F0F5F5;
+    overflow-x: hidden;
   }
+
+  @font-face {
+        font-family: Archivo;
+        src: url('./fonts/Archivo_Black/ArchivoBlack-Regular.ttf');
+    }
+
 `;
 
 const data: Artists = [
     {
-        name: "walterkim",
-        dir: "../images/awanqi"
-    },
-    {
         name: "adriansmith",
-        dir: ""
+        title: "Adrian Smith"
     },
     {
-        name: "alexisrives",
-        dir: ""
+        name: "albaballesta",
+        title: "Alba Ballesta González"
     },
     {
-        name: "nkayurova",
-        dir: ""
+        name: "alenaaenami",
+        title: "Alena Aenami"
     },
     {
-        name: "sachinteng",
-        dir: ""
+        name: "andreasrocha",
+        title: "Andreas Rocha"
     },
     {
-        name: "samuelyoun",
-        dir: ""
+        name: "angelinebandong",
+        title: "Angeline Bandong"
     },
     {
-        name: "zeenchin",
-        dir: ""
+        name: "ateyghailan",
+        title: "Atey Ghailan"
+    },
+    {
+        name: "awanqi",
+        title: "aw anqi"
+    },
+    {
+        name: "chaninsuasungnern",
+        title: "chanin suasungnern"
+    },
+    {
+        name: "chineseletters",
+        title: "拯 （雁甲）"
+    },
+    {
+        name: "chingyeh",
+        title: "Ching Yeh"
+    },
+    {
+        name: "chunlo",
+        title: "Chun LO"
+    },
+    {
+        name: "fernandocorrea",
+        title: "Fernando Correa"
+    },
+    {
+        name: "gliulian",
+        title: "g liu lian"
+    },
+    {
+        name: "ickyh",
+        title: "icky h"
     },
     {
         name: "satoshimatsuura",
-        dir: ""
+        title: "Satoshi Matsuura"
+    },
+    {
+        name: "size",
+        title: "三叠色 Size"
+    },
+    {
+        name: "tanzhihui",
+        title: "Tan Zhi Hui"
+    },
+    {
+        name: "walterkim",
+        title: "Walkter Kim"
+    },
+    {
+        name: "weifeng",
+        title: "Wei Feng"
+    },
+    {
+        name: "yliadeillustrations",
+        title: "Yliade Illustrations"
+    },
+    {
+        name: "yunling",
+        title: "Yun Ling"
+    },
+    {
+        name: "zeenchin",
+        title: "Zeen Chin"
     }
 ];
 
@@ -70,6 +134,7 @@ const App: React.FC = () => {
 
                 if (offset === height) {
                     addAnotherThree();
+                    console.log("waht");
                 }
             });
         }
@@ -80,6 +145,7 @@ const App: React.FC = () => {
         let newViewGallery = data.slice(0, counter);
         setViewGallery(newViewGallery);
     };
+
     return (
         <Container>
             <Global />

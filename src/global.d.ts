@@ -1,6 +1,6 @@
 interface Artist {
     name: string;
-    dir: string;
+    title: string;
 }
 
 type Artists = Artist[];

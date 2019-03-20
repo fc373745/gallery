@@ -163,6 +163,17 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
                 setImages(images);
                 break;
             }
+            case "chingyeh": {
+                const images = importAll(
+                    require.context(
+                        "../images/chingyeh",
+                        false,
+                        /\.(png|jpe?g|svg)$/
+                    )
+                );
+                setImages(images);
+                break;
+            }
             case "gliulian": {
                 const images = importAll(
                     require.context(
@@ -419,9 +430,20 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
         }
     }, [images, numDivisions]);
 
+    const Title = styled.div`
+        box-sizing: border-box;
+        padding: 2rem 1rem 1rem 1rem;
+        width: 100%;
+        background-color: #f0f5f5;
+        font-size: 4.2rem;
+        font-family: Archivo;
+        border-bottom: 0.5rem solid #000;
+        margin-bottom: 1rem;
+    `;
+
     return (
         <>
-            <h1>{artist.name}</h1>
+            <Title>{artist.title}</Title>
             <GalleryContainer>
                 {sepImages &&
                     sepImages.map((images, i) => (
