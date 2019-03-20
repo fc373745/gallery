@@ -6,39 +6,29 @@ interface Props {
 }
 
 const GalleryContainer = styled.div`
-    /* width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    font-size: 0; */
-    display: flex;
-`;
-
-const ImageContainer = styled.div`
-    flex: auto;
-    width: 500px;
-    margin: 0.5vw;
-`;
-
-// const Image = styled.img`
-//     width: 100%;
-//     height: auto;
-// `;
-
-const Title = styled.div`
     width: 100%;
-    background-color: blue;
-    height: 5rem;
-    font-size: 2rem;
+`;
+
+const Column = styled.div<{ numDivisions: number }>`
+    display: flex;
+    flex-direction: column;
+    width: ${p => 100 / p.numDivisions}%;
+`;
+
+const Image = styled.img`
+    width: 100%;
+    height: auto;
 `;
 
 function importAll(r: any) {
     return r.keys().map(r);
 }
 
-const Images = styled.div``;
-
 export const Gallery: React.FC<Props> = ({ artist }) => {
     const [images, setImages] = React.useState<any>(null);
+    const [numDivisions, setNumDivisions] = React.useState<number>(0);
+    const [sepImages, setSepImages] = React.useState<string[][] | null>(null);
 
     const getImages = () => {
         const images = importAll(
@@ -47,25 +37,69 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
         setImages(images);
     };
 
+    const seperateImages = () => {
+        let sepImagesList = [new Array(numDivisions)];
+
+        if (images && numDivisions) {
+            images.forEach((image: string, i: number) => {
+                if (sepImagesList[i % numDivisions]) {
+                    sepImagesList[i % numDivisions].push(image);
+                } else {
+                    sepImagesList[i % numDivisions] = [image];
+                }
+            });
+        }
+
+        setSepImages(sepImagesList);
+    };
+
     React.useEffect(() => {
         if (!images) {
+            window.addEventListener("resize", () => {
+                if (window.innerWidth <= 500) {
+                    setNumDivisions(1);
+                } else if (
+                    window.innerWidth > 250 &&
+                    window.innerWidth <= 800
+                ) {
+                    setNumDivisions(2);
+                } else if (
+                    window.innerWidth > 800 &&
+                    window.innerWidth <= 1200
+                ) {
+                    setNumDivisions(3);
+                } else {
+                    setNumDivisions(3);
+                }
+            });
             getImages();
+        }
+        if (images && !numDivisions) {
+            if (window.innerWidth <= 500) {
+                setNumDivisions(1);
+            } else if (window.innerWidth > 250 && window.innerWidth <= 800) {
+                setNumDivisions(2);
+            } else if (window.innerWidth > 800 && window.innerWidth <= 1200) {
+                setNumDivisions(3);
+            } else {
+                setNumDivisions(3);
+            }
+        }
+        if (images && numDivisions) {
+            seperateImages();
         }
     });
 
     return (
         <GalleryContainer>
-            <Images>
-                {images &&
-                    images.map((image: any) => (
-                        <ImageContainer>
-                            <img
-                                style={{ height: "auto", width: "100%" }}
-                                src={image}
-                            />
-                        </ImageContainer>
-                    ))}
-            </Images>
+            {sepImages &&
+                sepImages.map(images => (
+                    <Column numDivisions={numDivisions}>
+                        {images.map(image => (
+                            <Image src={image} />
+                        ))}
+                    </Column>
+                ))}
         </GalleryContainer>
     );
 };

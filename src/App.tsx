@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { Gallery } from "./components/Gallery";
 
-const GalleryContainer = styled.div`
-    display: flex;
-    width: 100vw;
-    /* max-width: 1200px; */
+const Container = styled.div`
+    width: 100%;
+    max-width: 1800px;
     padding: 1rem;
+    margin: auto;
 `;
 
 const Global = createGlobalStyle`
@@ -30,10 +30,10 @@ const Data: Artists = [
 class App extends Component {
     render() {
         return (
-            <GalleryContainer>
+            <Container>
                 <Global />
                 <Gallery artist={Data[0]} />
-            </GalleryContainer>
+            </Container>
         );
     }
 }
