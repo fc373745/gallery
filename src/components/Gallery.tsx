@@ -339,17 +339,6 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
                 setImages(images);
                 break;
             }
-            case "yliadeillustrations": {
-                const images = importAll(
-                    require.context(
-                        "../images/yliadeillustrations",
-                        false,
-                        /\.(png|jpe?g|svg)$/
-                    )
-                );
-                setImages(images);
-                break;
-            }
             case "yunling": {
                 const images = importAll(
                     require.context(
@@ -400,16 +389,18 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
                     setNumDivisions(1);
                 } else if (
                     window.innerWidth > 250 &&
-                    window.innerWidth <= 800
+                    window.innerWidth <= 800 &&
+                    artist.maxColumns >= 2
                 ) {
                     setNumDivisions(2);
                 } else if (
                     window.innerWidth > 800 &&
-                    window.innerWidth <= 1200
+                    window.innerWidth <= 1200 &&
+                    artist.maxColumns >= 3
                 ) {
                     setNumDivisions(3);
                 } else {
-                    setNumDivisions(4);
+                    setNumDivisions(artist.maxColumns);
                 }
             });
             getImages();
@@ -417,12 +408,20 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
         if (images && !numDivisions) {
             if (window.innerWidth <= 500) {
                 setNumDivisions(1);
-            } else if (window.innerWidth > 250 && window.innerWidth <= 800) {
+            } else if (
+                window.innerWidth > 250 &&
+                window.innerWidth <= 800 &&
+                artist.maxColumns > 2
+            ) {
                 setNumDivisions(2);
-            } else if (window.innerWidth > 800 && window.innerWidth <= 1200) {
+            } else if (
+                window.innerWidth > 800 &&
+                window.innerWidth <= 1200 &&
+                artist.maxColumns > 3
+            ) {
                 setNumDivisions(3);
             } else {
-                setNumDivisions(4);
+                setNumDivisions(artist.maxColumns);
             }
         }
         if (images && numDivisions) {
@@ -437,7 +436,8 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
         background-color: #f0f5f5;
         font-size: 4.2rem;
         font-family: Archivo;
-        border-bottom: 0.5rem solid #000;
+        border-bottom: 0.5rem solid #0a1010;
+        color: #0a1010;
         margin-bottom: 1rem;
     `;
 
@@ -449,7 +449,7 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
                     sepImages.map((images, i) => (
                         <Column key={i} numDivisions={numDivisions}>
                             {images.map((image, i) => (
-                                <Image key={i} src={image} />
+                                <Image key={i} src={image} alt={image} />
                             ))}
                         </Column>
                     ))}

@@ -31,91 +31,149 @@ const Global = createGlobalStyle`
 const data: Artists = [
     {
         name: "adriansmith",
-        title: "Adrian Smith"
+        title: "Adrian Smith",
+        maxColumns: 4
     },
     {
         name: "albaballesta",
-        title: "Alba Ballesta González"
+        title: "Alba Ballesta González",
+        maxColumns: 3
     },
     {
         name: "alenaaenami",
-        title: "Alena Aenami"
+        title: "Alena Aenami",
+        maxColumns: 1
     },
     {
         name: "andreasrocha",
-        title: "Andreas Rocha"
+        title: "Andreas Rocha",
+        maxColumns: 1
     },
     {
         name: "angelinebandong",
-        title: "Angeline Bandong"
+        title: "Angeline Bandong",
+        maxColumns: 4
     },
     {
         name: "ateyghailan",
-        title: "Atey Ghailan"
+        title: "Atey Ghailan",
+        maxColumns: 4
     },
     {
         name: "awanqi",
-        title: "aw anqi"
+        title: "aw anqi",
+        maxColumns: 4
     },
     {
         name: "chaninsuasungnern",
-        title: "chanin suasungnern"
+        title: "chanin suasungnern",
+        maxColumns: 4
     },
     {
         name: "chineseletters",
-        title: "拯 （雁甲）"
+        title: "拯 （雁甲）",
+        maxColumns: 1
     },
     {
         name: "chingyeh",
-        title: "Ching Yeh"
+        title: "Ching Yeh",
+        maxColumns: 4
     },
     {
         name: "chunlo",
-        title: "Chun LO"
+        title: "Chun Lo",
+        maxColumns: 4
     },
     {
         name: "fernandocorrea",
-        title: "Fernando Correa"
+        title: "Fernando Correa",
+        maxColumns: 3
     },
     {
         name: "gliulian",
-        title: "g liu lian"
+        title: "g liu lian",
+        maxColumns: 1
     },
     {
         name: "ickyh",
-        title: "icky h"
+        title: "icky h",
+        maxColumns: 4
     },
     {
+        name: "jamesjean",
+        title: "James Jean",
+        maxColumns: 4
+    },
+    {
+        name: "jinhong",
+        title: "Jin Hong",
+        maxColumns: 4
+    },
+    {
+        name: "leeyeonggyun",
+        title: "Lee Yeong Gyun",
+        maxColumns: 4
+    },
+    {
+        name: "micaeladawn",
+        title: "Micaela Dawn",
+        maxColumns: 4
+    },
+    {
+        name: "nivanhchanthara",
+        title: "Nivanh changthara",
+        maxColumns: 4
+    },
+    {
+        name: "nkayurova",
+        title: "N kayurova",
+        maxColumns: 4
+    },
+    {
+        name: "sachinteng",
+        title: "Sachin Teng",
+        maxColumns: 4
+    },
+    {
+        name: "samuelyoun",
+        title: "Samuel Youn",
+        maxColumns: 4
+    },
+
+    {
         name: "satoshimatsuura",
-        title: "Satoshi Matsuura"
+        title: "Satoshi Matsuura",
+        maxColumns: 4
     },
     {
         name: "size",
-        title: "三叠色 Size"
+        title: "三叠色 Size",
+        maxColumns: 1
     },
     {
         name: "tanzhihui",
-        title: "Tan Zhi Hui"
+        title: "Tan Zhi Hui",
+        maxColumns: 4
     },
     {
         name: "walterkim",
-        title: "Walkter Kim"
+        title: "Walkter Kim",
+        maxColumns: 3
     },
     {
         name: "weifeng",
-        title: "Wei Feng"
-    },
-    {
-        name: "yliadeillustrations",
-        title: "Yliade Illustrations"
+        title: "Wei Feng",
+        maxColumns: 4
     },
     {
         name: "yunling",
-        title: "Yun Ling"
+        title: "Yun Ling",
+        maxColumns: 4
     },
     {
         name: "zeenchin",
-        title: "Zeen Chin"
+        title: "Zeen Chin",
+        maxColumns: 4
     }
 ];
 
