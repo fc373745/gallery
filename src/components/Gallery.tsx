@@ -1,5 +1,14 @@
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+    faArtstation,
+    faInstagram,
+    faTwitterSquare
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import styled from "styled-components";
+
+library.add(faTwitterSquare, faArtstation, faInstagram);
 interface Props {
     artist: Artist;
 }
@@ -430,20 +439,56 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
     }, [images, numDivisions]);
 
     const Title = styled.div`
+        margin-top: 2rem;
         box-sizing: border-box;
-        padding: 2rem 1rem 1rem 1rem;
+        padding: 1rem;
         width: 100%;
-        background-color: #f0f5f5;
-        font-size: 4.2rem;
+        background-color: #30323d;
+        font-size: 3.2rem;
         font-family: Archivo;
-        border-bottom: 0.5rem solid #0a1010;
-        color: #0a1010;
-        margin-bottom: 1rem;
+        color: #f0f5f5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    `;
+
+    const Links = styled.div`
+        display: flex;
+        align-items: center;
+    `;
+    const Link = styled.a`
+        padding-right: 2rem;
+        font-size: 2.5rem;
+        color: #f0f5f5;
+
+        &:hover {
+            color: #94b8b8;
+            transition-duration: 250ms;
+        }
     `;
 
     return (
         <>
-            <Title>{artist.title}</Title>
+            <Title>
+                {artist.title}
+                <Links>
+                    {artist.artstation && (
+                        <Link href={artist.artstation} target="_blank">
+                            <FontAwesomeIcon icon={["fab", "artstation"]} />
+                        </Link>
+                    )}
+                    {artist.insta && (
+                        <Link href={artist.insta} target="_blank">
+                            <FontAwesomeIcon icon={["fab", "instagram"]} />
+                        </Link>
+                    )}
+                    {artist.twitter && (
+                        <Link href={artist.twitter} target="_blank">
+                            <FontAwesomeIcon icon={["fab", "twitter-square"]} />
+                        </Link>
+                    )}
+                </Links>
+            </Title>
             <GalleryContainer>
                 {sepImages &&
                     sepImages.map((images, i) => (
