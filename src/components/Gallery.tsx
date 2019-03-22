@@ -439,17 +439,19 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
     }, [images, numDivisions]);
 
     const Title = styled.div`
-        margin-top: 2rem;
         box-sizing: border-box;
         padding: 1rem;
         width: 100%;
-        background-color: #30323d;
+        background-color: #f0f5f5;
         font-size: 3.2rem;
         font-family: Archivo;
-        color: #f0f5f5;
+        color: #30323d;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 5px solid #30323d;
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
     `;
 
     const Links = styled.div`
@@ -459,18 +461,22 @@ export const Gallery: React.FC<Props> = ({ artist }) => {
     const Link = styled.a`
         padding-right: 2rem;
         font-size: 2.5rem;
-        color: #f0f5f5;
+        color: #30323d;
 
         &:hover {
-            color: #94b8b8;
+            color: #70758f;
             transition-duration: 250ms;
         }
+    `;
+    const TitleName = styled.div`
+        padding-bottom: 0.3rem;
+        user-select: none;
     `;
 
     return (
         <>
             <Title>
-                {artist.title}
+                <TitleName>{artist.title}</TitleName>
                 <Links>
                     {artist.artstation && (
                         <Link href={artist.artstation} target="_blank">

@@ -20,11 +20,12 @@ const Global = createGlobalStyle`
     font-size: 16px;
     background-color: #F0F5F5;
     overflow-x: hidden;
+    font-family: Archivo;
+    color: #30323d;
   }
-
   @font-face {
         font-family: Archivo;
-        src: url('./fonts/Archivo_Black/ArchivoBlack-Regular.ttf');
+        src: url('./fonts/Merriweather_Sans/MerriweatherSans-Bold.ttf');
     }
 
 `;
@@ -259,9 +260,19 @@ const App: React.FC = () => {
         setViewGallery(newViewGallery);
     };
 
+    const Title = styled.div`
+        font-size: 2rem;
+        background-color: #30323d;
+        color: #f0f5f5;
+        padding: 1rem 1rem;
+        border-radius: 5px;
+        text-align: center;
+    `;
+
     return (
         <Container>
             <Global />
+            <Title>some artists i like</Title>
             {viewGallery.map(dat => (
                 <Gallery key={dat.name} artist={dat} />
             ))}
